@@ -6,12 +6,17 @@ on:
       - main
 
 jobs:
-  docker-build:
+  docker-ci:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Lint Dockerfile with Hadolint
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: docker/Dockerfile
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -19,6 +24,6 @@ jobs:
       - name: Build Docker image
         run: |
           docker build \
-            -t git-to-docker-app \
+            -t git-to-docker-app:ci \
             -f docker/Dockerfile \
             .
