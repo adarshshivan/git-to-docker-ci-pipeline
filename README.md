@@ -1,11 +1,31 @@
 # Git-to-Docker CI Pipeline
 
-This project demonstrates a foundational DevOps workflow that starts from source code management using Git and progresses through containerization using Docker, with Continuous Integration principles applied.
+## Project Summary
 
-The objective of this project is to establish a clean repository structure that can later be extended to include:
-- Automated CI pipelines
-- Container image builds
-- Deployment strategies
-- Monitoring and observability
+The **Git-to-Docker CI Pipeline** is a DevOps-focused project that demonstrates how a simple Python application can be containerized, validated, and automatically published as a Docker image using a fully automated CI workflow.
 
-This repository is part of a larger DevOps learning roadmap and will evolve step by step.
+The project follows a production-aligned approach where every code change pushed to the `main` branch triggers a GitHub Actions pipeline that:
+- Lints the Dockerfile using best practices
+- Builds a Docker image in a clean CI environment
+- Securely authenticates with Docker Hub using access tokens
+- Pushes the image to a public Docker Hub repository
+
+All Docker image publishing is handled exclusively through CI, eliminating manual builds and ensuring a reproducible, auditable artifact lifecycle.
+
+This project is designed to showcase core DevOps concepts such as containerization, CI automation, secure credential management, and environment-independent application delivery.
+
+## Key Technologies
+- Python
+- Docker
+- GitHub Actions
+- Docker Hub
+- Hadolint
+
+## Documentation
+Detailed technical documentation, architecture explanations, and implementation steps are available in the [`docs/`](./docs) directory.
+
+---
+
+*This repository is part of a structured DevOps learning and portfolio-building initiative, with future projects expanding into Kubernetes, CI/CD releases, and Infrastructure as Code.*
+
+---
